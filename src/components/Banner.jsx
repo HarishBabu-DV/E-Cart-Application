@@ -24,7 +24,7 @@ const slideData = [
   ];
 const Banner = () => {
   return (
-    <div className="relative overflow-hidden w-full h-full py-20">
+    <div className="relative overflow-hidden w-full h-full py-24">
     <Carousel slides={slideData}/>
     </div>
   )
