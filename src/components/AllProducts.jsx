@@ -23,7 +23,7 @@ const AllProducts = () => {
     return (
       <section className='my-5'>
         <h2 className='text-center text-4xl font-bold py-5'>Products</h2>
-        <ul className='flex items-center justify-center gap-4'>
+        <ul className='flex items-center justify-center gap-4 flex-wrap'>
             {
                 productCategories.map((productCategory,index)=>{
                     return <li className='bg-black text-white hover:cursor-pointer px-3 py-2 rounded uppercase font-semibold' onClick={()=>setMenu(productCategory)} key={index}>
@@ -40,7 +40,7 @@ const AllProducts = () => {
                 products.length >0 
                 ? products.filter((item)=>item.category === menu || menu === "All").
                 map((product,index)=>{
-                    return  <ProductCard item={product} key={index} imageFile={product.thumbnail}/>
+                    return  <ProductCard item={product} key={index} />
                 }) : 
                 Array.from({length:9}).map((skeleton,index)=>(
                      <div className="flex flex-col space-y-3">
