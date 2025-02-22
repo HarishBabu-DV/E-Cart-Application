@@ -14,7 +14,7 @@ const View = () => {
   useEffect(()=>{
     getProductData()
   })
-  return (
+  return (  
     <section>
       {
         product ?
