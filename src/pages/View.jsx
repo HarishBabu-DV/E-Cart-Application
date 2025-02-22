@@ -18,7 +18,7 @@ const View = () => {
     <section>
       {
         product ?
-         <h1 className='font-semibold '> {product.title} </h1> 
+         <h1 className='font-semibold text-4xl'> {product.title} </h1> 
         : <div className="space-y-2">
             <Skeleton className="h-4 w-[300px]" />
             <Skeleton className="h-4 w-[250px]" />
