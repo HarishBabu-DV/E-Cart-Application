@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import { Skeleton } from '../components/ui/skeleton'
 const View = () => {
- 
+  const location=useLocation();
+  const path=location.pathname.split('/')
   const {id}=useParams()
   console.log(id);
   const [product,setProduct]=useState([])
@@ -14,17 +15,22 @@ const View = () => {
   }
   useEffect(()=>{
     getProductData()
-  })
+  },[])
   return (  
     <section>
       {/* Breadcrumbs  */}
-      {/* <div className="breadcrumbs text-sm">
+      <div className="breadcrumbs text-sm">
         <ul>
-          <li><Link to={"/"}>Home</Link> </li>
-          <li><Link to={"/view"}>{path[0]}</Link> </li>
+          <li><Link to={"/"}>Home</Link></li>
           <li>{path[1]}</li>
+          <li>{path[2]}</li>
         </ul>
-      </div> */}
+      </div>
+      
+
+    
+      {/* Product Title  */}
+      <div>
       {
         product ?
          <h1 className='font-semibold text-4xl '> {product.title} </h1> 
@@ -34,6 +40,7 @@ const View = () => {
             <Skeleton className="h-4 w-[200px]" />
         </div>
       }
+      </div>
     </section>
   )
 }
