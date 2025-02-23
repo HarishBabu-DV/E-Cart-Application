@@ -49,22 +49,25 @@ const View = () => {
           </div>
         </div>
       </div>
-      
-        {/* Product additional images if any  */}
-        <div className='pl-20'>
-          {
-          productDetails ? productDetails.images.map((individualImage,index)=>{
-          return <div className="h-[150px] w-[250px] bg-[#fdfdfd] shadow-lg rounded-xl">
-              <img src={individualImage} key={index} className='w-full h-full' />
-            </div>
-            }) :
-          <div className="space-y-2">
-              <Skeleton className="h-4 w-[300px]" />
-              <Skeleton className="h-4 w-[250px]" />
-              <Skeleton className="h-4 w-[200px]" />
+
+      {/* Product additional images if any  */}
+      <div className='pl-20'>
+        {
+        productDetails ? productDetails.images.map((individualImage,index)=>{
+        return <div className="h-[150px] w-[250px] bg-[#fafafa] shadow-lg rounded-xl">
+            <img src={individualImage} key={index} className='w-full h-full' />
           </div>
-          }
-        </div>  
+          }) :
+        <div className="space-y-2">
+            <Skeleton className="h-4 w-[300px]" />
+            <Skeleton className="h-4 w-[250px]" />
+            <Skeleton className="h-4 w-[200px]" />
+        </div>
+        }
+      </div>  
+
+      <p>{productDetails.description}</p>
+      
       </section>
 
 
