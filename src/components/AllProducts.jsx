@@ -12,7 +12,6 @@ const AllProducts = () => {
         const res=await fetch('https://dummyjson.com/products')
         const data =await res.json();
         setProducts(data.products)
-        setLoading(false)
     }
     console.log(products);
     useEffect(()=>{

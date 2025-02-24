@@ -9,14 +9,19 @@ const View = () => {
   const {id}=useParams()
   const [productDetails,setProductDetails]=useState([])
   const getProductData=async ()=>{
-    const res=await fetch(`https://dummyjson.com/products/${id}`)
-    const data=await res.json()
-    console.log(data);
-    setProductDetails(data)
+    try {
+      const res=await fetch(`https://dummyjson.com/products/${id}`)
+      const data=await res.json()
+      console.log(data);
+      setProductDetails(data)
+    } catch (error) {
+      console.log(error);
+    }
+
   }
   useEffect(()=>{
     getProductData()
-  },[id])
+  },[])
   return (  
     <section className='pt-28'>
       {/* Breadcrumbs  */}
@@ -51,22 +56,22 @@ const View = () => {
       </div>
 
       {/* Product additional images if any  */}
-      <div className='pl-20'>
+      <div className='pl-20 flex items-center gap-x-8'>
         {
-        productDetails ? productDetails.images.map((individualImage,index)=>{
-        return <div className="h-[150px] w-[250px] bg-[#fafafa] shadow-lg rounded-xl">
-            <img src={individualImage} key={index} className='w-full h-full' />
+          productDetails ? 
+          productDetails.images.map((individualImage,index)=>{
+          return <div className="h-[150px] w-[250px] bg-[#fafafa] shadow-lg rounded-xl">
+              <img src={individualImage} key={index} className='w-full h-full' />
+            </div>
+            }) :<div className="space-y-2">
+              <Skeleton className="h-4 w-[300px]" />
+              <Skeleton className="h-4 w-[250px]" />
+              <Skeleton className="h-4 w-[200px]" />
           </div>
-          }) :
-        <div className="space-y-2">
-            <Skeleton className="h-4 w-[300px]" />
-            <Skeleton className="h-4 w-[250px]" />
-            <Skeleton className="h-4 w-[200px]" />
-        </div>
         }
       </div>  
 
-      <p>{productDetails.description}</p>
+      <p className='pl-20 py-6 text-lg font-light'>{productDetails.description}</p>
       
       </section>
 
