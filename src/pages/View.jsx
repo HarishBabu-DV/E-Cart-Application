@@ -7,7 +7,7 @@ const View = () => {
   const location=useLocation();
   const path=location.pathname.split('/')
   const {id}=useParams()
-  const [productDetails,setProductDetails]=useState([])
+  const [productDetails,setProductDetails]=useState({})
   const getProductData=async ()=>{
     try {
       const res=await fetch(`https://dummyjson.com/products/${id}`)
@@ -17,7 +17,6 @@ const View = () => {
     } catch (error) {
       console.log(error);
     }
-
   }
   useEffect(()=>{
     getProductData()
@@ -58,10 +57,10 @@ const View = () => {
       {/* Product additional images if any  */}
       <div className='pl-20 flex items-center gap-x-8'>
         {
-          productDetails ? 
+          productDetails.images ? 
           productDetails.images.map((individualImage,index)=>{
-          return <div className="h-[150px] w-[250px] bg-[#fafafa] shadow-lg rounded-xl">
-              <img src={individualImage} key={index} className='w-full h-full' />
+          return <div key={index} className="h-[150px] w-[250px] bg-[#fafafa] shadow-lg rounded-xl">
+              <img src={individualImage} className='w-full h-full' />
             </div>
             }) :<div className="space-y-2">
               <Skeleton className="h-4 w-[300px]" />
