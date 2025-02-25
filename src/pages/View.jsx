@@ -7,7 +7,10 @@ const View = () => {
   const location=useLocation();
   const path=location.pathname.split('/')
   const {id}=useParams()
+  // product details 
   const [productDetails,setProductDetails]=useState({})
+// dollar to inr 
+  const inr=productDetails.price *80
   const getProductData=async ()=>{
     try {
       const res=await fetch(`https://dummyjson.com/products/${id}`)
@@ -69,7 +72,15 @@ const View = () => {
           </div>
         }
       </div>  
-
+      <div className='pl-20  flex items-center justify-between w-[60%] '>
+        <div className='flex items-center gap-x-3'>
+          <h3 className='font-medium text-3xl'>₹ {inr.toFixed()}</h3>   
+          <span className="font-normal text-3xl text-green-500">
+              {productDetails.discountPercentage}%
+          </span>
+        </div>
+        <p className='text-2xl font-normal'>In stock : <span className='text-green-500'>{productDetails.stock}</span> </p>
+      </div>
       <p className='pl-20 py-6 text-lg font-light'>{productDetails.description}</p>
       
       </section>
