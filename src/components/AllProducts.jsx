@@ -21,7 +21,7 @@ const AllProducts = () => {
 
     return (
       <section className='my-5'>
-        <h2 className='text-center text-4xl font-bold py-5'>Products</h2>
+        <h2 className='text-center text-4xl font-bold py-5 max-sm:text-2xl'>Products</h2>
         <ul className='flex items-center justify-center gap-4 flex-wrap'>
             {
                 productCategories.map((productCategory,index)=>{
