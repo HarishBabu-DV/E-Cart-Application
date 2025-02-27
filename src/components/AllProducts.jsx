@@ -33,7 +33,7 @@ const AllProducts = () => {
             }
         </ul>
         {/* Card  */}
-        <div className='grid grid-cols-3 justify-items-center max-lg:grid-cols-2 max-md:grid-cols-1 max-sm:grid-cols-1 gap-4 px-8'>
+        <div className='grid grid-cols-3 justify-items-center max-lg:grid-cols-2 max-md:grid-cols-1 max-sm:grid-cols-1 gap-0 px-4 max-sm:px-2'>
 
             {
                 products.length >0 
